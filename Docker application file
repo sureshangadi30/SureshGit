@@ -1,8 +1,7 @@
-**Dockerize the Application**
 FROM python:3.8-slim
 WORKDIR /app
 
-CMD ["python", "etl.py"]
+CMD ["python", "DCS.py"]
 docker-compose.yml:
 version: '3.8'
 
@@ -15,7 +14,7 @@ services:
     volumes:
       - .:/app/SureshTEST/ 
     environment:
-      - PYTHONUNBUFFERED=1  # Ensures real-time output of logs
+      - PYTHONUNBUFFERED=1 
     ports:
       - "8021:8000"  
-    command: ["python", "DCS.py"]  # Run your ETL script
+    command: ["python", "DCS.py"] 

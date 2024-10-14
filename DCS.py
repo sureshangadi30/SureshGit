@@ -1,4 +1,5 @@
 # Databricks notebook source
+# First i have loaded the file into azure blob
 # MAGIC %fs ls abfss://tdhpgslandint@tdhpgsnpdlandin01.dfs.core.windows.net/SureshTEST/
 
 # COMMAND ----------
@@ -18,26 +19,25 @@
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE dev_greater_sydney_division_bronze.midt.people (
-# MAGIC   FullName VARCHAR(250),
-# MAGIC   Company VARCHAR(100),
-# MAGIC   BirthDate VARCHAR(100),
-# MAGIC   Salary FLOAT,
-# MAGIC   Address VARCHAR(255),
-# MAGIC   Post VARCHAR(100),
-# MAGIC   Phone VARCHAR(100),
-# MAGIC   Mobile VARCHAR(100),
-# MAGIC   Email VARCHAR(255),
-# MAGIC   Age INT,
-# MAGIC   SalaryBucket VARCHAR(10),
-# MAGIC   State VARCHAR(100),
-# MAGIC   Suburb VARCHAR(100))
-# MAGIC USING delta
-# MAGIC TBLPROPERTIES (
-# MAGIC   'delta.minReaderVersion' = '1',
-# MAGIC   'delta.minWriterVersion' = '2');
-# MAGIC  
+%sql
+CREATE OR REPLACE TABLE dev_greater_sydney_division_bronze.midt.people (
+  FullName VARCHAR(250),
+  Company VARCHAR(100),
+  BirthDate VARCHAR(100),
+  Salary FLOAT,
+  Address VARCHAR(255),
+  Post VARCHAR(100),
+  Phone VARCHAR(100),
+  Mobile VARCHAR(100),
+  Email VARCHAR(255),
+  Age INT,
+  SalaryBucket VARCHAR(10),
+  State VARCHAR(100),
+  Suburb VARCHAR(100))
+USING delta
+TBLPROPERTIES (
+  'delta.minReaderVersion' = '1',
+  'delta.minWriterVersion' = '2');
 
 # COMMAND ----------
 
